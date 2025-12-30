@@ -1,0 +1,70 @@
+﻿MVC PYTHON
+PRODUCTO
+
+RUTA: /home/auskalo/proyectos/webpython/root/app
+Módulo: /home/auskalo/proyectos/webpython/root/app/producto
+
+index.py está en la carpeta app hace las veces de frontcontroller
+	#!/usr/bin/env python3
+	from sys import path #importa path desde sys
+	path.append("/home/auskalo/proyectos/webpython/root/app") #añade la ruta a path
+	from producto.controller import ProductoController #importa ProductoController
+
+	controller = ProductoController() #Crea un objeto controller
+	controller.ver() #llama a la vista 
+
+en la carpeta producto tenemos:
+	__init__.py (todas las carpetas deben tener un archivo __init__.py)
+	model.py
+	controller.py
+	view.py
+
+__init__.py
+	from sys import path #importa path desde sys
+	path.append("/home/auskalo/proyectos/webpython/root/app") #añade la ruta a path
+
+model.py:
+	from producto.model import ProductoModel #importa ProductoModel
+	from producto.view import ProductoView #importa ProductoView
+
+controller.py:
+class ProductoController(object): #Creo la clase ProductoController, atento a object
+        
+    def __init__(self): #Creo el método constructor, atento a self
+        self.model = ProductoModel() #Creo una instancia del modelo
+        self.view = ProductoView() #Creo una instancia de la vista
+
+    def ver(self):  #Llamo a la vista 
+        self.model.producto_id = 1
+        self.model.select()
+
+        self.view.ver(self.model)
+
+model.py:
+class ProductoModel(object):  #Creo la clase ProductoModel
+    def __init__(self): #Creo el método constructor, atento a self
+        self.producto_id = 0
+        self.denominacion = ""
+        self.precio = 0.0
+        self.barcode = ""
+        self.iva = 0
+
+
+    def insert(self):
+        pass
+    def update(self):
+        pass
+    def select(self):
+        pass
+    def delete(self):
+        pass
+
+view.py: 
+class ProductoView(object):    #Creo la clase ProductoView, atento a object
+    def ver(self, producto):
+        print("content-type: text/html")
+        print("")
+        print(vars(producto))
+
+
+

@@ -1,0 +1,82 @@
+﻿root@maialen:~# a2dismod mpm_event
+Module mpm_event disabled.
+To activate the new configuration, you need to run:
+  systemctl restart apache2
+root@maialen:~# a2dismod mpm_cgid
+ERROR: Module mpm_cgid does not exist!
+root@maialen:~# systemctl restart apache2
+Job for apache2.service failed because the control process exited with error code.
+See "systemctl status apache2.service" and "journalctl -xeu apache2.service" for details.
+root@maialen:~# a2enmod mpm_prefork
+Considering conflict mpm_event for mpm_prefork:
+Considering conflict mpm_worker for mpm_prefork:
+Enabling module mpm_prefork.
+To activate the new configuration, you need to run:
+  systemctl restart apache2
+root@maialen:~# a2enmod cgi
+Module cgi already enabled
+root@maialen:~# systemctl restart apache2
+root@maialen:~# grep -i "directory"
+^C
+root@maialen:~# grep -i "directory" /etc/ap
+apache2/        apg.conf        apparmor/       apparmor.d/     appstream.conf  apt/            
+root@maialen:~# grep -i "directory" /etc/apache2/apache2.conf
+# below, all located in the /etc/apache2/ directory:
+# ServerRoot: The top of the directory tree under which the server's
+# Do NOT add a slash at the end of the directory path.
+# The directory where shm and other runtime files will be stored.
+# your system is serving content from a sub-directory in /srv you must allow
+<Directory />
+</Directory>
+<Directory /usr/share>
+</Directory>
+<Directory /var/www/>
+</Directory>
+#<Directory /srv/>
+#</Directory>
+<Directory /home/auskalo/>
+</Directory>
+# AccessFileName: The name of the file to look for in each directory
+root@maialen:~# 
+cerrar sesión
+auskalo@maialen:~/proyectos_python/closures$ cd ..
+auskalo@maialen:~/proyectos_python$ cd ..
+auskalo@maialen:~$ cd proyectos
+auskalo@maialen:~/proyectos$ mkdir web_python
+auskalo@maialen:~/proyectos$ cd web_python/
+auskalo@maialen:~/proyectos/web_python$ mkdir -p webpython/{app,logs}
+auskalo@maialen:~/proyectos/web_python$ ls
+webpython
+auskalo@maialen:~/proyectos/web_python$ tree webpython/
+webpython/
+├── app
+└── logs
+
+3 directories, 0 files
+auskalo@maialen:~/proyectos/web_python$ su -
+Contraseña: 
+root@maialen:~# cd /etc/apache2/sites-available/
+root@maialen:/etc/apache2/sites-available# vim webpython.conf
+root@maialen:/etc/apache2/sites-available# a2ensite webpython.conf 
+Enabling site webpython.
+To activate the new configuration, you need to run:
+  systemctl reload apache2
+root@maialen:/etc/apache2/sites-available# systemctl restart apache2
+root@maialen:/etc/apache2/sites-available# echo "127.0.0.1 webpython.local" >> /etc/hosts
+root@maialen:/etc/apache2/sites-available# 
+cerrar sesión
+auskalo@maialen:~/proyectos/web_python$ cd webpython/app
+auskalo@maialen:~/proyectos/web_python/webpython/app$ vim index.py
+
+
+W16: Advertencia: el modo del archivo "index.py" ha cambiado desde que comenzó la edición
+Consulte ":help W16" para más información.
+"index.py" 5L, 100B
+Pulse INTRO o escriba una orden para continuar
+auskalo@maialen:~/proyectos/web_python/webpython/app$ w16
+bash: w16: orden no encontrada
+auskalo@maialen:~/proyectos/web_python/webpython/app$ :help W16
+bash: :help: orden no encontrada
+auskalo@maialen:~/proyectos/web_python/webpython/app$ ":help W16"
+bash: :help W16: orden no encontrada
+auskalo@maialen:~/proyectos/web_python/webpython/app$ 
