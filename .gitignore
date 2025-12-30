@@ -1,0 +1,6 @@
+logs/
+private/
+__pycache__/
+*.pyc
+.env
+venv/
