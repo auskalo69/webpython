@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href='/media/css/style.css' rel='stylesheet'/>
+
+    <title>Agregar Producto</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-group">Agregar Producto</div>
+        <form action="/producto/guardar" method="POST">        
+            <div class="form-group">
+                <span>Denominacion</span>       
+                <input class="input-field" type="text" id="denominacion"
+                name="denominacion" value=$denominacion>
+                <small class="error-message">$denominacion</small>
+            </div>      
+            <div class="form-group">
+                <span>Precio</span>       
+                <input class="input-field" type="text" id="precio"
+                name="precio" value=$precio>
+                <small class="error-message">$precio</small>
+            </div>
+            <div class="form-group">
+                <span>Barcode</span>       
+                <input class="input-field" type="text" id="barcode"
+                name="barcode" value=$barcode>
+                <small class="error-message">$barcode</small>
+            </div>            
+            <div class="button">
+                <input type="submit" value="Agregar">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

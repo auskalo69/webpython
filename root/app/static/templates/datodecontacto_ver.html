@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href='/media/css/style.css' rel='stylesheet'/>
+
+    <title>$title</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-group-title">$title</div>
+        <form action="#" method="#">        
+            <div class="form-group">
+                <span>Producto id</span>
+                <input class="input-field" type="text" id="datodecontacto_id"         
+                value="$datodecontacto_id" readonly>
+            </div>
+            <div class="form-group">
+                <span>Denominacion</span>       
+                <input class="input-field" type="text" id="denominacion"
+                value="$denominacion" readonly>
+            </div>      
+            <div class="form-group">
+                <span>Valor</span>       
+                <input class="input-field" type="text" id="valor"
+                value="$valor" readonly>
+            </div>
+        </form>
+        <div class="form-footer">
+            <p><a href="/datodecontacto/agregar"><b>Agregar Dato de Contacto</b></a> -- 
+            <a href="/datodecontacto/editar/$datodecontacto_id"><b>Editar Dato de Contacto</b></a> --
+            <a href="/datodecontacto/eliminar/$datodecontacto_id"><b>Eliminar Dato de Contacto</b></a></p>
+        </div>
+    </div>
+</body>
+</html>

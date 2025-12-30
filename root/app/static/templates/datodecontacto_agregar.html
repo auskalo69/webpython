@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link href='/media/css/style.css' rel='stylesheet'/>
+
+    <title>Agregar Dato de Contacto</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-group">Agregar Dato de Contacto</div>
+        <form action="/datodecontacto/guardar" method="POST">        
+            <div class="form-group">
+                <span>Denominacion</span>       
+                <input class="input-field" type="text" id="denominacion"
+                name="denominacion" value=$denominacion>
+                <small class="error-message">$denominacion</small>
+            </div>      
+            <div class="form-group">
+                <span>Valor</span>       
+                <input class="input-field" type="text" id="valor"
+                name="valor" value=$valor>
+                <small class="error-message">$valor</small>
+            </div>
+            <div class="button">
+                <input type="submit" value="Agregar">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
